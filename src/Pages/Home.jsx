@@ -20,6 +20,10 @@ import Uruguay from '../Icons/Uruguay.png';
 import Argentina from '../Icons/Argentina.png';
 import Brasil from '../Icons/Brasil.png';
 import Paraguay from '../Icons/Paraguay.png';
+import Parallax from 'parallax-js'; // Importa la librería si es que usas React
+
+
+
 
 // Definición de TicIcon
 const TicIcon = () => (
@@ -36,6 +40,7 @@ const CruzIcon = () => (
 );
 
 function Home() {
+  
   const [currentDay, setCurrentDay] = useState('');
 
   useEffect(() => {
@@ -53,6 +58,7 @@ function Home() {
     Heat: 0,
     volts: 0, // Incluido volts con valor inicial 0
   });
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -77,52 +83,58 @@ function Home() {
 
     fetchData();
   }, []);
-
+  
   return (
+    
+      
     <div className="App">
-      <nav className="Nav"> 
-          <LogoYNombre Link='/' Logo={Logo} />
-            <div className="ContIcon1">
-              <Icon1 Ruta='/' Icon1={Nombre} />
-            </div>
+      
+      <nav className="Nav">
+        <LogoYNombre Link='/' Logo={Logo} />
+        <div className="ContIcon1">
+          <Icon1 Ruta='/' Icon1={Nombre} />
+        </div>
       </nav>
-      <main>
-        <div className="ContLocation">
-          <Location />
-        </div>
-        <div className="ContMap">
-              <Map1 />
-        </div>
-        <div className='ContDia'>
-          <h2 style={{textAlign: 'center'}}>{currentDay}</h2>
-        </div>
-        <div className="ContTemp">
-          <div className="Iconos">
-            <div className="Icono">
-              <img src={temperatura} alt="Icono de temperatura" style={{ width: '50px', height: '50px' }} />
-              <h2 className="valores">{datosSensores.temperatura}</h2>
+
+    <main>
+      <div className="ContLocation">
+        <Location />
+      </div>
+      <div className="ContMap">
+        <Map1 />
+      </div>
+
+      {/* Contenedor para la fecha con fondo degradado */}
+      <div className="ContDia">
+        <h2>{currentDay}</h2>
+      </div>
+
+      <div className="ContTemp">
+        <div className="Iconos">
+          <div className="Icono">
+            <img src={temperatura} alt="Icono de temperatura" />
+            <h2 className="valores">{datosSensores.temperatura}</h2>
+          </div>
+          <div className="Icono">
+            <img src={viento} alt="Icono de viento" />
+            <h2 className="valores">{datosSensores.viento}</h2>
+          </div>
+          <div className="Icono">
+            <img src={lluvia} alt="Icono de lluvia" />
+            <div className="mt-2">
+              {datosSensores.lluvia >= 10 ? <TicIcon /> : <CruzIcon />}
             </div>
-            <div className="Icono">
-              <img src={viento} alt="Icono de viento" style={{ width: '50px', height: '50px' }} />
-              <h2 className="valores">{datosSensores.viento}</h2>
-            </div>
-            <div className="Icono">
-              <img src={lluvia} alt="Icono de lluvia" style={{ width: '50px', height: '50px' }} />
-              <div className="mt-2">
-                {datosSensores.lluvia >= 10 ? <TicIcon /> : <CruzIcon />}
-              </div>
-            </div>
-            <div className="Icono">
-              <img src={humedad} alt="Icono de humedad" style={{ width: '50px', height: '50px' }} />
-              <h2 className="valores">{datosSensores.humedad}</h2>
-            </div>
-            <div className="Icono">
-              <img src={SensacionTermica} alt="Icono de S.Termica" style={{ width: '50px', height: '50px' }} />
-              <h2 className="valores">{datosSensores.Heat}</h2>
-            </div>
-            
+          </div>
+          <div className="Icono">
+            <img src={humedad} alt="Icono de humedad" />
+            <h2 className="valores">{datosSensores.humedad}</h2>
+          </div>
+          <div className="Icono">
+            <img src={SensacionTermica} alt="Icono de S.Termica" />
+            <h2 className="valores">{datosSensores.Heat}</h2>
           </div>
         </div>
+      </div>
         <div id="sectionChart" style={{ 
           width: '100%', 
           display: 'flex', 
@@ -135,20 +147,18 @@ function Home() {
           </div>
         </div>
   <div id="sectionInfo" className="ContInfo">
-    <Info
-      Title="INFO"
-      SubTitle="Sobre el proyecto"
-      InfoText="El proyecto tiene como objetivo desarrollar una solución creativa y funcional para la recolección y visualización de datos ambientales, incluyendo mediciones de temperatura, humedad y velocidad del viento.
-      Este proyecto está siendo desarrollado por estudiantes de la Escuela Técnica Hogar Naval Stella Maris, quienes han aplicado sus conocimientos en robotica y programación para diseñar una solución innovadora. Durante la Hackaton Mercosur 2024, un evento en el que participaron estudiantes de Argentina, Brasil, Uruguay y Paraguay, se sentaron las bases para esta iniciativa, demostrando el valor de la colaboración regional en el ámbito educativo y tecnológico.
-      "
-    />
+  <Info
+    Title="INFO"
+    SubTitle="Sobre el proyecto"
+    InfoText="El proyecto tiene como objetivo desarrollar una solución creativa y funcional para la recolección y visualización de datos ambientales, incluyendo mediciones de temperatura, humedad y velocidad del viento. Este proyecto está siendo desarrollado por estudiantes de la Escuela Técnica Hogar Naval Stella Maris, quienes han aplicado sus conocimientos en robótica y programación para diseñar una solución innovadora. Durante la Hackaton Mercosur 2024, un evento en el que participaron estudiantes de Argentina, Brasil, Uruguay y Paraguay, se sentaron las bases para esta iniciativa, demostrando el valor de la colaboración regional en el ámbito educativo y tecnológico."
+  />
   </div>
   <div className="d-flex" style={{ width: '100%' }}>
     <div style={{ width: '75%', margin: '0 auto' }}>
       <img src={foto} alt="foto" className="img-fluid" />
     </div>
   </div>
-
+  
 
       </main>
     </div>

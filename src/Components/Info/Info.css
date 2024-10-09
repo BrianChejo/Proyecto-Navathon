@@ -1,0 +1,31 @@
+/* Estilos para el contenedor de la tarjeta */
+.ContCard {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con un poco de transparencia */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    padding: 20px; /* Espaciado interno */
+    margin: 20px auto; /* Margen automático para centrar */
+    max-width: 800px; /* Ancho máximo */
+  }
+  
+  /* Estilo para el cuerpo de la tarjeta */
+  
+  
+  /* Títulos dentro de ContCard */
+  .CardTitle {
+    color: #0072ff; /* Color del título */
+    margin-bottom: 10px; /* Espaciado inferior */
+  }
+  
+  .CardSubtitle {
+    color: #555; /* Color del subtítulo */
+    margin-bottom: 15px; /* Espaciado inferior */
+  }
+  
+  /* Estilo para el texto de la información */
+  .CardInfo {
+    color: #333; /* Color del texto */
+    line-height: 1.6; /* Altura de línea para mejor legibilidad */
+    font-size: 16px; /* Tamaño de fuente */
+  }
+  

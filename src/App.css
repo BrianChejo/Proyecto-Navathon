@@ -1,7 +1,29 @@
+/* Tipografía y Colores */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+/* Estilos para encabezados */
+h1, h2 {
+  font-family: 'Roboto', sans-serif;
+  color: #0072ff; /* Color principal */
+}
+
+/* Estilos para párrafos */
+p {
+  font-family: 'Open Sans', sans-serif;
+  color: #555;
+}
+
+
+
 .App {
   text-align: center;
  
 }
+
 .Nav {
   width: 100%;
   height: auto;
@@ -26,14 +48,15 @@
   flex-direction: column;
 }
 
+/* Estilos responsivos */
 @media (max-width: 600px) {
-
-  .ContIcon1 {
-    padding-top: 15px;
-  margin-left: 20%; 
-  margin-right: auto; 
+  main {
+    flex-direction: column;
+    align-items: center;
   }
-
+  .Icono {
+    margin-bottom: 20px;
+  }
 }
 
 .ContButtonLocation{
@@ -43,6 +66,7 @@
   justify-content: center;
 }
 main{
+  
   margin-bottom: 100px;
 }
 .Iconos{
@@ -56,4 +80,77 @@ main{
   margin-left: 40px;
   margin-right: 20px;
   flex-direction: column;
+}
+
+/* Transiciones para imágenes e iconos */
+button, .Icono img {
+  transition: transform 0.3s ease;
+}
+
+button:hover, .Icono img:hover {
+  transform: scale(1.1);
+}
+
+/* Botones estilizados */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+/* Fondo degradado para la fecha */
+.ContDia {
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+}
+/* Ajustar íconos */
+.Iconos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.Icono {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 40px;
+  margin-right: 20px;
+}
+.InfoContainer {
+  display: flex;
+  flex-direction: column; /* O 'row' si quieres que estén uno al lado del otro */
+  align-items: center; /* Centra los elementos */
+  justify-content: center; /* Centra verticalmente */
+  margin: 20px;
+}
+/* App.css */
+.ContMap {
+  width: 80%; /* Cambia este valor según lo desees */
+  height: 400px; /* Altura específica */
+  max-height: 60vh; /* Altura máxima responsiva */
+  margin: 20px auto; /* Centra el mapa */
+  overflow: hidden; /* Evita desbordes */
+  border: 2px solid #ddd; /* Opcional: Añade un borde */
+  border-radius: 10px; /* Opcional: Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Opcional: Sombra */
+}
+.ContInfo {
+  background-color: rgba(240, 240, 240, 0.8); /* Fondo gris claro */
+  padding: 40px; /* Espaciado interno */
+  border-radius: 10px; /* Bordes redondeados */
+  margin: 20px auto; /* Margen automático para centrar */
+  max-width: 900px; /* Ancho máximo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
 }

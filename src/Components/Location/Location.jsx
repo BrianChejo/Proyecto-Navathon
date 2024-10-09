@@ -1,10 +1,9 @@
 import React from 'react';
 import LocationInput from './LocationInput';
 import ButtonLocation from './ButtonsLocation';
-
 function Location() {
   const predefinedLocations = ['Argentina', 'Brasil', 'Paraguay', 'Uruguay'];
-
+  
   return (
     <main style={{ 
       width: '100vw',
@@ -13,6 +12,7 @@ function Location() {
       justifyContent: 'center',
       alignItems: 'center',
     }}>
+      
       <div className="container mt-3">
         <div className="container mt-5">
           
