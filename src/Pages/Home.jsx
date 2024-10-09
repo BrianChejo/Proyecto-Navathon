@@ -42,6 +42,25 @@ const CruzIcon = () => (
 function Home() {
   
   const [currentDay, setCurrentDay] = useState('');
+  const [isVisible, setIsVisible] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100); // Tiempo antes de que la navegación se haga visible
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
 
   useEffect(() => {
     const today = new Date();
@@ -85,24 +104,23 @@ function Home() {
   }, []);
   
   return (
-    
+  
       
     <div className="App">
-      
-      <nav className="Nav">
+      <nav className={`Nav ${isVisible ? 'visible' : ''} ${isScrolled ? 'scrolled' : ''}`}>
         <LogoYNombre Link='/' Logo={Logo} />
         <div className="ContIcon1">
           <Icon1 Ruta='/' Icon1={Nombre} />
         </div>
       </nav>
 
-    <main>
-      <div className="ContLocation">
-        <Location />
-      </div>
-      <div className="ContMap">
-        <Map1 />
-      </div>
+      <main>
+        <div className="ContLocation">
+          <Location />
+        </div>
+        <div className="ContMap">
+          <Map1 />
+        </div>
 
       {/* Contenedor para la fecha con fondo degradado */}
       <div className="ContDia">

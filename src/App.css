@@ -23,15 +23,60 @@ p {
   text-align: center;
  
 }
-
 .Nav {
   width: 100%;
   height: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
+  background: linear-gradient(90deg, #0072ff, #00c6ff); /* Degradado inicial */
+  background-size: 200% 200%; /* Tamaño del fondo para animación */
+  animation: gradientAnimation 5s ease infinite; /* Animación de degradado */
+  padding: 10px 20px; /* Espaciado interno */
+  opacity: 0; /* Comienza invisible */
+  transform: translateY(-20px); /* Mueve hacia arriba */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Transiciones suaves */
+  position: fixed; /* Fijo en la parte superior */
+  top: 0; /* Alineado al top */
+  left: 0; /* Alineado a la izquierda */
+  z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
 }
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%; /* Comienza desde la izquierda */
+  }
+  50% {
+    background-position: 100% 50%; /* Mueve hacia la derecha */
+  }
+  100% {
+    background-position: 0% 50%; /* Regresa a la posición inicial */
+  }
+}
+
+.Nav.visible {
+  opacity: 1; /* Visible */
+  transform: translateY(0); /* Regresa a su posición original */
+}
+
+.Nav a {
+  text-decoration: none; /* Eliminar subrayado */
+  color: #fff; /* Color del texto */
+  padding: 10px 15px; /* Espaciado alrededor del texto */
+  transition: color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+}
+
+.Nav a:hover {
+  color: #ffcc00; /* Color al pasar el mouse */
+  transform: scale(1.1); /* Aumentar tamaño al pasar el mouse */
+}
+
+.Nav.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al hacer scroll */
+}
+
+
 
 .LogoA {
   height: 50%;
